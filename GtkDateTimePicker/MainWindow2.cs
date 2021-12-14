@@ -8,8 +8,7 @@ namespace GtkDateTimePicker
     {
         //[UI] private Gtk.Window historyWindow = null;
         [UI] private Gtk.Button openBtn = null;
-        
-        
+
         public MainWindow2() : this(new Builder("MainWindow2.glade"))
         {
         }
