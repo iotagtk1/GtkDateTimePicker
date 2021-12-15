@@ -6,6 +6,13 @@ namespace GtkDateTimePicker
 {
      partial class MainDialog : Dialog
     {
+        
+        [UI] private Gtk.Button cancelBtn = null;
+        [UI] private Gtk.Button okBtn = null;
+        [UI] private Gtk.Calendar dateCalendar = null;
+        [UI] private Gtk.SpinButton hoursBtn = null;
+        [UI] private Gtk.SpinButton minitusBtn = null;
+        
         public MainDialog() : this(new Builder("MainDialog.glade"))
         {
         
@@ -26,6 +33,14 @@ namespace GtkDateTimePicker
                 hoursBtn.Value = value.Hour;
                 minitusBtn.Value = value.Minute;
             }
+        }
+        
+        private void on_cancelBtn_clicked(object sender , EventArgs e){
+            this.Destroy();
+        }
+		
+        private void on_okBtn_clicked(object sender , EventArgs e){
+            this.Destroy();
         }
 
         private MainDialog(Builder builder) : base(builder.GetRawOwnedObject("MainDialog"))
