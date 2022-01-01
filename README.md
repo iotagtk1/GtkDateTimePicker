@@ -6,14 +6,14 @@ Calendar and time picker are available
 
 ```cs
 
- MainDialog MainDialog1 = new MainDialog();
+ DateDialog DateDialog1 = new DateDialog();
 
- MainDialog1.DateTimeObj = DateTime.Now;
+ DateDialog1.DateTimeObj = DateTime.Now;
 
- var r = MainDialog1.Run();
+ var r = DateDialog1.Run();
 
  if (r == 1) {
-     Console.WriteLine(MainDialog1.DateTimeObj);
+     Console.WriteLine(DateDialog1.DateTimeObj);
  }
 
 ```
