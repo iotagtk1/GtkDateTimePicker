@@ -4,6 +4,21 @@ using UI = Gtk.Builder.ObjectAttribute;
 
 namespace GtkDateTimePicker
 {
+    
+    /*
+     *   DateDialog DateDialog1 = new DateDialog();
+
+         DateDialog1.DateTimeObj = DateTime.Now;
+
+         var r = DateDialog1.Run();
+
+         if (r == 1) {
+             Console.WriteLine(DateDialog1.DateTimeObj);
+         }
+     *
+     */
+    
+    
      partial class DateDialog : Dialog
     {
         
