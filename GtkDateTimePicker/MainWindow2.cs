@@ -27,16 +27,16 @@ namespace GtkDateTimePicker
         private void on_openBtn_clicked(object sender , EventArgs e)
         {
 			
-            MainDialog MainDialog1 = new MainDialog();
+            DateDialog dateDialog1 = new DateDialog();
             
-            MainDialog1.DateTimeObj = DateTime.Now;
+            dateDialog1.DateTimeObj = DateTime.Now;
             
-            var r = MainDialog1.Run();
+            var r = dateDialog1.Run();
 
             Console.WriteLine(r);
             if (r == 1)
             {
-                Console.WriteLine(MainDialog1.DateTimeObj);
+                Console.WriteLine(dateDialog1.DateTimeObj);
             }
 
         }

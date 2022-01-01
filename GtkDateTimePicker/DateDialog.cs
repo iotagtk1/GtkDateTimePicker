@@ -4,7 +4,7 @@ using UI = Gtk.Builder.ObjectAttribute;
 
 namespace GtkDateTimePicker
 {
-     partial class MainDialog : Dialog
+     partial class DateDialog : Dialog
     {
         
         [UI] private Gtk.Button cancelBtn = null;
@@ -13,7 +13,7 @@ namespace GtkDateTimePicker
         [UI] private Gtk.SpinButton hoursBtn = null;
         [UI] private Gtk.SpinButton minitusBtn = null;
         
-        public MainDialog() : this(new Builder("MainDialog.glade"))
+        public DateDialog() : this(new Builder("DateDialog.glade"))
         {
         
         }
@@ -43,7 +43,7 @@ namespace GtkDateTimePicker
             this.Destroy();
         }
 
-        private MainDialog(Builder builder) : base(builder.GetRawOwnedObject("MainDialog"))
+        private DateDialog(Builder builder) : base(builder.GetRawOwnedObject("DateDialog"))
         {
             builder.Autoconnect(this);
 
