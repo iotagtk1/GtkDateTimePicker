@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 
@@ -6,6 +7,8 @@ namespace GtkDateTimePicker
 {
     
     /*
+     　  set EmbedResorce
+     
      *   DateDialog DateDialog1 = new DateDialog();
 
          DateDialog1.DateTimeObj = DateTime.Now;
@@ -28,17 +31,18 @@ namespace GtkDateTimePicker
         [UI] private Gtk.SpinButton hoursBtn = null;
         [UI] private Gtk.SpinButton minitusBtn = null;
         
-        public DateDialog() : this(new Builder("DateDialog.glade"))
-        {
-        
-        }
         
         private DateTime _dateTimeObj;
         public DateTime DateTimeObj
         {
             get
             {
-                DateTime _dateTimeObj = new DateTime(dateCalendar.Year, dateCalendar.Month, dateCalendar.Day, hoursBtn.ValueAsInt, minitusBtn.ValueAsInt, 0, 0);
+
+                string dateStr = dateCalendar.Year.ToString() + "-" + (dateCalendar.Month+1).ToString() + "-" + dateCalendar.Day + " " +
+                    hoursBtn.ValueAsInt.ToString() + ":" + minitusBtn.ValueAsInt.ToString();
+
+                DateTime _dateTimeObj = DateTime.ParseExact(dateStr, "yyyy-M-d H:m",CultureInfo.InvariantCulture);
+                    
                 return _dateTimeObj;
             }
             set
@@ -58,6 +62,10 @@ namespace GtkDateTimePicker
             this.Destroy();
         }
 
+        public DateDialog() : this(new Builder("DateDialog.glade"))
+        {
+            
+        }
         private DateDialog(Builder builder) : base(builder.GetRawOwnedObject("DateDialog"))
         {
             builder.Autoconnect(this);
@@ -66,7 +74,7 @@ namespace GtkDateTimePicker
         }
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
         {
-           this.Destroy();
+            this.Destroy();
         }
 
         
