@@ -66,7 +66,7 @@ namespace GtkDateTimePicker
         }
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
         {
-            Application.Quit();
+           this.Destroy();
         }
 
         
