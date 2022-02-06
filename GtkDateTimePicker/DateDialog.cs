@@ -41,7 +41,7 @@ namespace GtkDateTimePicker
                 string dateStr = dateCalendar.Year.ToString() + "-" + (dateCalendar.Month+1).ToString() + "-" + dateCalendar.Day + " " +
                     hoursBtn.ValueAsInt.ToString() + ":" + minitusBtn.ValueAsInt.ToString();
 
-                DateTime _dateTimeObj = DateTime.ParseExact(dateStr, "yyyy-M-d H:m",CultureInfo.InvariantCulture);
+                DateTime _dateTimeObj = DateTime.ParseExact(dateStr, "yyyy-M-d H:m",CultureInfo.CurrentCulture);
                     
                 return _dateTimeObj;
             }
