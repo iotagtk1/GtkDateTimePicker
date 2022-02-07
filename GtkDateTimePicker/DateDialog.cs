@@ -20,9 +20,19 @@ namespace GtkDateTimePicker
          }
      *
      */
-    
-    
-     partial class DateDialog : Dialog
+    public static class GtkButtonExtensions
+    {
+        static public string _addZeroNum(this Gtk.SpinButton btn)
+        {
+            string num = btn.ValueAsInt.ToString();
+            if (num.Length == 1)
+            {
+                num = "0" + num;
+            }
+            return num;
+        }
+    }
+    partial class DateDialog : Dialog
     {
         
         [UI] private Gtk.Button cancelBtn = null;
@@ -39,9 +49,9 @@ namespace GtkDateTimePicker
             {
 
                 string dateStr = dateCalendar.Year.ToString() + "-" + (dateCalendar.Month+1).ToString() + "-" + dateCalendar.Day + " " +
-                    hoursBtn.ValueAsInt.ToString() + ":" + minitusBtn.ValueAsInt.ToString();
+                    hoursBtn._addZeroNum() + ":" + minitusBtn._addZeroNum();
 
-                DateTime _dateTimeObj = DateTime.ParseExact(dateStr, "yyyy-M-d H:m",CultureInfo.CurrentCulture);
+                DateTime _dateTimeObj = DateTime.ParseExact(dateStr, "yyyy-M-d HH:mm",CultureInfo.CurrentCulture);
                     
                 return _dateTimeObj;
             }
