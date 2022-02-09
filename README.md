@@ -15,5 +15,7 @@ Calendar and time picker are available
  if (r == 1) {
      Console.WriteLine(DateDialog1.DateTimeObj);
  }
+ 
+ DateDialog1.Dispose();
 
 ```
